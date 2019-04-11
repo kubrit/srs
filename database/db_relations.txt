@@ -1,0 +1,48 @@
+###companies -> users
+# For users
+If the `company_id` is changed in `companies` it will also change `company_id` in the `users` table.
+```
+ALTER TABLE `users` 
+ADD CONSTRAINT `FK_comapnies_users` 
+FOREIGN KEY (`company_id`) 
+REFERENCES `companies`(`company_id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+```
+
+###shipments_types -> shipments
+# For shipments
+If `type_id` is changed in `shipments_types` this will also change `shipment_type_id` in the `shipments` table.
+```
+ALTER TABLE `shipments` 
+ADD CONSTRAINT `FK_shipments_types_shipments` 
+FOREIGN KEY (`shipment_type_id`) 
+REFERENCES `shipments_types`(`shipment_type_id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+```
+
+###users -> conversations_messages
+# For messages
+If `user_id` is changed in users, then `user_id` will also change in the `conversations_messages` table.
+```
+ALTER TABLE `conversations_messages` 
+ADD CONSTRAINT `FK_users_conversations_messages` 
+FOREIGN KEY (`user_id`) 
+REFERENCES `users`(`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+```
+
+###users -> conversations_members
+# For members
+If `user_id` is changed in `users` this will also change `user_id` in user `conversations` table.
+```
+ALTER TABLE `conversations_members` 
+ADD CONSTRAINT `FK_users_conversations_members` 
+FOREIGN KEY (`user_id`) 
+REFERENCES `users`(`user_id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+```
+
+###Drop foreign keys
+```
+ALTER TABLE conversations_members DROP FOREIGN KEY FK_conversations_members_conversations
+ALTER TABLE conversations_messages DROP FOREIGN KEY FK_conversations_messages_conversations
+ALTER TABLE conversations_messages DROP FOREIGN KEY FK_users_conversations_messages
+ALTER TABLE conversations_messages DROP INDEX FK_conversations_messages_users;
+ALTER TABLE conversations_members DROP FOREIGN KEY FK_users_conversations_members
+```

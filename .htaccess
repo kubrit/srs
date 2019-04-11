@@ -1,0 +1,5 @@
+### to enable htaccess on ubuntu: "a2enmod rewrite" next "service apache2 restart"
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /profile.php?login=$1
