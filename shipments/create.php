@@ -59,7 +59,19 @@ if(isset($_POST['save_many'])) {
 		<div class="panel panel-default">
 			<div class="panel-heading"><?php echo TXT_SHIPMENTS; ?></div>
 			<div class="panel-body">
-				<a href="shipments.php?shipments=all&action=new" class="btn btn-large btn-info"><i class="glyphicon glyphicon-pencil"></i>&nbsp;<?php echo BTN_CHANGE_SHIPMENTS_COUNT; ?></a>
+				<?php
+				if (!empty($_GET['shipments'] == 'all') === true) {
+					$error[] = ERR_CANT_ADD_SHIPMENTS_ALL;
+				} elseif (!empty($_GET['shipments'] == 'received') === true) {
+				?>
+					<a href="shipments.php?shipments=received&action=new" class="btn btn-large btn-info"><i class="glyphicon glyphicon-pencil"></i>&nbsp;<?php echo BTN_CHANGE_SHIPMENTS_COUNT; ?></a>
+				<?php
+				} elseif (!empty($_GET['shipments'] == 'sent') === true) {
+				?>
+					<a href="shipments.php?shipments=sent&action=new" class="btn btn-large btn-info"><i class="glyphicon glyphicon-pencil"></i>&nbsp;<?php echo BTN_CHANGE_SHIPMENTS_COUNT; ?></a>
+				<?php
+				}
+				?>
 			</div>
 
 			<?php
