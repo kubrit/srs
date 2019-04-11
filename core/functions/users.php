@@ -775,15 +775,15 @@ function loadLanguage()
   if (isset($_COOKIE['language']) && in_array($_COOKIE['language'], $availableLanguageCodes)) {
 
     if ($current_file=='settings.php') {
-      require_once($_SERVER['DOCUMENT_ROOT'] .'/srs/core/languages/' . $_COOKIE['language'] . '.php');
+      require_once($_SERVER['DOCUMENT_ROOT'] .'/core/languages/' . $_COOKIE['language'] . '.php');
       return;
     } else {
-      require_once($_SERVER['DOCUMENT_ROOT'] . '/srs/core/languages/' . $_COOKIE['language'] . '.php');
+      require_once($_SERVER['DOCUMENT_ROOT'] . '/core/languages/' . $_COOKIE['language'] . '.php');
       return;
     }
   }
   // default language
-  require_once($_SERVER['DOCUMENT_ROOT'] . '/srs/core/languages/en.php');
+  require_once($_SERVER['DOCUMENT_ROOT'] . '/core/languages/en.php');
 }
 
 function setLanguage(string $language)
