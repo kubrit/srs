@@ -32,6 +32,8 @@ DEFINE('ERR_USERS_NOT_FOUND','Tych kont nie można znaleźć: ');
 DEFINE('ERR_SUBJECT_IS_EMPTY','Temat nie może być pusty.');
 DEFINE('ERR_BODY_IS_EMPTY','Treść nie może być pusta.');
 DEFINE('ERR_SELECT_AT_LEAST_ONE','Przynajmniej [ 1 ] checkbox musi być zaznaczony!');
+DEFINE('ERR_CANT_ADD_SHIPMENTS_ALL','Nie możesz dodać przesyłki w `shipments=all`!');
+
 
 // Sukcesy
 DEFINE('SUC_SUCCESS','Sukces!');

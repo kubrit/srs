@@ -32,6 +32,7 @@ DEFINE('ERR_USERS_NOT_FOUND','These users can\'t be found: ');
 DEFINE('ERR_SUBJECT_IS_EMPTY','Subject can\'t be empty.');
 DEFINE('ERR_BODY_IS_EMPTY','Body can\'t be empty.');
 DEFINE('ERR_SELECT_AT_LEAST_ONE','At least [ 1 ] checkbox must be selected!');
+DEFINE('ERR_CANT_ADD_SHIPMENTS_ALL','You can\'t add shipment in `shipments=all`!');
 
 // Success
 DEFINE('SUC_SUCCESS','Success!');
