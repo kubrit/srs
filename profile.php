@@ -8,7 +8,7 @@ if(isset($_GET['login']) === true && empty($_GET['login']) === false) {
 
 	if (user_exists($login) === true) {
 		$user_id = user_id_from_login($login);
-		$data_profile = user_data($user_id, 'login', 'first_name', 'last_name', 'email', 'picture', 'language');
+		$data_profile = user_data($user_id, 'login', 'first_name', 'last_name', 'email', 'picture');
 ?>
 	<style>
 		.othertop{margin-top:10px;}
