@@ -772,10 +772,10 @@ function loadLanguage()
   global $current_file;
 
   $availableLanguageCodes = array_keys(getAvailableLanguages());
-  if (isset($_COOKIE['language']) && in_array($_COOKIE['language'], $availableLanguageCodes)) {
 
+  if (isset($_COOKIE['language']) && in_array($_COOKIE['language'], $availableLanguageCodes)) {
     if ($current_file=='settings.php') {
-      require_once($_SERVER['DOCUMENT_ROOT'] .'/core/languages/' . $_COOKIE['language'] . '.php');
+      require_once($_SERVER['DOCUMENT_ROOT'] . '/../core/languages/' . $_COOKIE['language'] . '.php');
       return;
     } else {
       require_once($_SERVER['DOCUMENT_ROOT'] . '/core/languages/' . $_COOKIE['language'] . '.php');
