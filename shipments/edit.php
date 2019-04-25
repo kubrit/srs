@@ -71,11 +71,12 @@ $shipments_type_id_value = '';
 						<select name="shipment_type_id[]" class="form-control match-content">
 							<option value="" disabled selected style='display:none;'><?php echo TXT_CHOOSE; ?></option>
 							<?php
-							$sql = "SELECT * FROM ".$t_shipments_types."";
+							$sql = "SELECT shipment_type_id, shipment_type_name FROM ".$t_shipments_types."";
 							$result = $connect->query($sql);
-							while($rop2 = $result->fetch_assoc()) {
-								echo "<option value='$rop2[shipment_type_id]' ". ($shipments_type_id_value == "$rop2[shipment_type_id]" ? 'selected="selected"' : "")." >$rop2[shipment_type_name]</option>";
+							while($data = $result->fetch_assoc()) {
+								echo "<option value='$data[shipment_type_id]' ". ($shipments_type_id_value == "$data[shipment_type_id]" ? 'selected="selected"' : "")." >$data[shipment_type_name]</option>";
 							}
+							unset($data);
 							?>
 						</select>
 					</td>
