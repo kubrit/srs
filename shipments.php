@@ -189,11 +189,10 @@ $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 			require_once 'inc/overall/footer.php';
 		}
 	}
-	/*else
+	else
 	{
 		$error[] = ERR_UNKNOWN_URL;
 	}
-	*/
 
 	if (empty($error) === false) {
 		require_once 'inc/overall/header.php';
