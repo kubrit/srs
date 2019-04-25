@@ -3,10 +3,8 @@
 // Błędy
 DEFINE('ERR_UNKNOWN_URL','Nieznany adres strony!');
 DEFINE('ERR_FAILED_TO_SAVE','Nieudana próba zapisu, spróbuj ponownie.');
-//DEFINE('ERR_RECORD_NOT_DELETED','Nie usunięto rekordu, spróbuj ponownie.');
 DEFINE('ERR_CHOOSE_FILE','Proszę wybrać plik.');
 DEFINE('ERR_INVALID_TYPE','Nieprawidłowy typ pliku. Dozwolone: ');
-//DEFINE('ERR_USER_NOT_EXIST','Przepraszam, użytkownik nie istnieje!');
 DEFINE('ERR_YOU_MUST_LOG_IN','Musisz być zalogowany by to zrobić! Proszę się zalogować <a href=\'index.php\' onclick=\'window.location.href=\"index.php\"\'>tutaj</a>.');
 DEFINE('ERR_ALREADY_REGISTERED_AND_LOGGED_IN','Jesteś już zarejestrowany oraz zalogowany.');
 DEFINE('ERR_FIELDS_WITH_ASTERISK_ARE_REQUIRED','Pola oznaczone gwiazdką są wymagane!');
@@ -34,7 +32,6 @@ DEFINE('ERR_BODY_IS_EMPTY','Treść nie może być pusta.');
 DEFINE('ERR_SELECT_AT_LEAST_ONE','Przynajmniej [ 1 ] checkbox musi być zaznaczony!');
 DEFINE('ERR_CANT_ADD_SHIPMENTS_ALL','Nie możesz dodać przesyłki w `shipments=all`!');
 
-
 // Sukcesy
 DEFINE('SUC_SUCCESS','Sukces!');
 DEFINE('SUC_RECORDS_CREATED','rekordy utworzone.');
@@ -46,7 +43,7 @@ DEFINE('SUC_REGISTERED','Pomyślnie zarejestrowano.');
 DEFINE('SUC_MESSAGE_SENT','Wiadomość wysłana.');
 
 // Info
-//DEFINE('INFO_TEST','Info testing.');
+// DEFINE('INFO_TEST','Info testing.');
 
 // Teksty
 DEFINE('TXT_CHOOSE','Wybierz...');
@@ -87,6 +84,12 @@ DEFINE('TXT_NEW','Nowa');
 DEFINE('TXT_ME','Ja');
 DEFINE('TXT_CONFIRM_DELETE','Czy na pewno usunąć rekordy?');
 DEFINE('TXT_ADD_NEW_SHIPMENTS','Dodaj nowe przeyłki');
+
+// Rodzaje przesyłek
+DEFINE('SHT_UNDEFINIED','Nieznane');
+DEFINE('SHT_RECOMMENDED_LETTER','List Polecony');
+DEFINE('SHT_PRIORITY_LETTER','List Priorytetowy');
+DEFINE('SHT_PRE_PAID_PACKAGE','Przedpłata');
 
 // Menu
 DEFINE('MENU_HOME','Dom');

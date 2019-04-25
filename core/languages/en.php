@@ -3,20 +3,18 @@
 // Error
 DEFINE('ERR_UNKNOWN_URL','Unknown page url address!');
 DEFINE('ERR_FAILED_TO_SAVE','Failed to save, try again.');
-//DEFINE('ERR_RECORD_NOT_DELETED','Record was not deleted, please try again.');
 DEFINE('ERR_CHOOSE_FILE','Please choose a file.');
 DEFINE('ERR_INVALID_TYPE','Invalid file type. Allowed:');
-//DEFINE('ERR_USER_NOT_EXIST','Sorry, the user does not exist!');
 DEFINE('ERR_YOU_MUST_LOG_IN','You must be logged in to do this! Please log in <a href=\'index.php\' onclick=\'window.location.href=\"index.php\"\'>here</a>.');
 DEFINE('ERR_ALREADY_REGISTERED_AND_LOGGED_IN','You are already registered and logged in.');
 DEFINE('ERR_FIELDS_WITH_ASTERISK_ARE_REQUIRED','Fields marked with an asterisk are required!');
 DEFINE('ERR_PASSWORD_DONT_MATCH','Entered passwords do not match! Repeat...');
 DEFINE('ERR_PASSWORD_CHAR_MINIMUM','Password must consist of min. 4 characters!');
 DEFINE('ERR_INCORRECT_PASSWORD','You have incorrectly entered your current password!');
-DEFINE('ERR_IS_ALREADY_TAKEN','is already taken.');
-DEFINE('ERR_SPACES_IN_LOGIN_NOT_ALLOWED','Your login can not contain spaces.');
 DEFINE('ERR_VALID_EMAIL_REQUIRED','A valid e-mail address is required!');
+DEFINE('ERR_IS_ALREADY_TAKEN','is already taken.');
 DEFINE('ERR_NO_RECIPIENT_SELECTED','Please select the recipient of the message.');
+DEFINE('ERR_SPACES_IN_LOGIN_NOT_ALLOWED','Your login can not contain spaces.');
 DEFINE('ERR_USERNAME_AND_PASSWORD_EMPTY','You must enter your username and password!');
 DEFINE('ERR_USERNAME_NOT_EXIST','This user does not exist. You have not registered yet?');
 DEFINE('ERR_ACCOUNT_INACTIVE','Account Inactive. Contact the Administrator.');
@@ -86,6 +84,12 @@ DEFINE('TXT_NEW','New');
 DEFINE('TXT_ME','Me');
 DEFINE('TXT_CONFIRM_DELETE','Do you really want to delete the records?');
 DEFINE('TXT_ADD_NEW_SHIPMENTS','Add new shipments');
+
+// Rodzaje przesyłek
+DEFINE('SHT_UNDEFINIED','Undefined');
+DEFINE('SHT_RECOMMENDED_LETTER','Recommended Letter');
+DEFINE('SHT_PRIORITY_LETTER','Priority Letter');
+DEFINE('SHT_PRE_PAID_PACKAGE','Pre-paid Package');
 
 // Menu
 DEFINE('MENU_HOME','Home');
