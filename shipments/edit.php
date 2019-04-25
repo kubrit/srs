@@ -4,11 +4,11 @@ $shipments_type_id_value = '';
 
 	if(isset($_POST['chk']) == "" && !empty($_GET['record']) != 'true') {
 		?>
-        <script>
-		alert('At least [ 1 ] checkbox must be selected!');
+    <script>
+		alert('<?php echo ERR_SELECT_AT_LEAST_ONE; ?>');
 		window.location.href='shipments.php?shipments=all';
 		</script>
-        <?php
+    <?php
 	}
 	$chk = isset($_POST['chk']) ? $_POST['chk'] : '';
 
@@ -24,7 +24,9 @@ $shipments_type_id_value = '';
 		<div class="panel panel-default">
 
 			<div class="panel-body">
+				<?php if (empty($_GET['shipments'] == 'all') === true) { ?>
 				<a href="shipments.php?shipments=all&action=new" class="btn btn-large btn-primary"><i class="glyphicon glyphicon-plus"></i>&nbsp;<?php echo TXT_ADD_NEW_SHIPMENTS; ?></a>
+				<?php } ?>
 			</div>
 
 			<form method="post" action="shipments.php?shipments=all&action=update">
