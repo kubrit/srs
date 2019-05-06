@@ -64,8 +64,8 @@ $shipments_type_id_value = '';
 						<div class="input-group-addon"><span class="glyphicon glyphicon-th"></span></div>
 						</div>
 					</td>
-					<td><input type="text" name="recipient[]" placeholder=" <?php echo PLH_RECIPIENT; ?> " value="<?php echo $row['recipient'];?>" class='form-control' /></td>
-					<td><input type="text" name="recipient_address[]" placeholder=" <?php echo PLH_RECIPIENT_ADDRESS; ?> " value="<?php echo $row['recipient_address'];?>" class='form-control' /></td>
+					<td><input type="text" id="recipient" name="recipient[]" placeholder=" <?php echo PLH_RECIPIENT; ?> " value="<?php echo $row['recipient'];?>" class='form-control' /></td>
+					<td><input type="text" id="recipient_address" name="recipient_address[]" placeholder=" <?php echo PLH_RECIPIENT_ADDRESS; ?> " value="<?php echo $row['recipient_address'];?>" class='form-control' /></td>
 					<td><textarea type="text" name="body_sent_correspondence[]" placeholder=" <?php echo PLH_CONTENT_OF_SENT_CORRESPONDENCE; ?> " class='form-control' style="min-width: 100%;resize:vertical"/><?php echo $row['body_sent_correspondence'];?></textarea></td>
 					<td>
 						<select name="shipment_type_id[]" class="form-control match-content">
@@ -74,7 +74,7 @@ $shipments_type_id_value = '';
 							$sql = "SELECT shipment_type_id, shipment_type_name FROM ".$t_shipments_types."";
 							$result = $connect->query($sql);
 							while($data = $result->fetch_assoc()) {
-								echo "<option value='$data[shipment_type_id]' ". ($shipments_type_id_value == "$data[shipment_type_id]" ? 'selected="selected"' : "")." >$data[shipment_type_name]</option>";
+								echo "<option value='$data[shipment_type_id]' ". ($shipments_type_id_value == "$data[shipment_type_id]" ? 'selected="selected"' : "")." >" . constant($data['shipment_type_name']) . "</option>";
 							}
 							unset($data);
 							?>

@@ -104,8 +104,8 @@ if(isset($_POST['save_many'])) {
 								<div class="input-group-addon"><span class="glyphicon glyphicon-th"></span></div>
 							</div>
 						</td>
-						<td><input type="text" name="recipient<?php echo $i; ?>" placeholder=" <?php echo TBL_RECIPIENT; ?> " class="form-control" id="recipient" data-provide="typeahead" autocomplete="off" /></td>
-						<td><input type="text" name="recipient_address<?php echo $i; ?>" placeholder=" <?php echo TBL_RECIPIENT_ADDRESS; ?> " class='form-control' id="recipient_address" data-provide="typeahead" autocomplete="off" /></td>
+						<td><input type="text" id="recipient" name="recipient<?php echo $i; ?>" placeholder=" <?php echo TBL_RECIPIENT; ?> " class="recipient form-control" autocomplete="off" /></td>
+						<td><input type="text" id="recipient_address" name="recipient_address<?php echo $i; ?>" placeholder=" <?php echo TBL_RECIPIENT_ADDRESS; ?> " class='form-control' autocomplete="off" /></td>
 						<td><textarea type="text" name="body_sent_correspondence<?php echo $i; ?>" placeholder=" <?php echo PLH_CONTENT_OF_SENT_CORRESPONDENCE; ?> " class='form-control' style="min-width: 100%;resize:vertical"/></textarea></td>
 						<td>
 							<select name="shipment_type_id<?php echo $i; ?>" class="form-control match-content">
@@ -113,9 +113,10 @@ if(isset($_POST['save_many'])) {
 								<?php
 								$sql = "SELECT * FROM ".$t_shipments_types."";
 								$result = $connect->query($sql);
-								while($sti = $result->fetch_assoc()) {
-										echo "<option value='$sti[shipment_type_id]'>$sti[shipment_type_name]</option>";
+								while($data = $result->fetch_assoc()) {
+										echo "<option value='$data[shipment_type_id]'>" . constant($data['shipment_type_name']);
 								}
+								unset($data);
 								?>
 							</select>
 						</td>
