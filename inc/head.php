@@ -17,9 +17,12 @@
 	<link href="bootstrap/css/bootstrap-font-awesome.min.css" rel="stylesheet">
 	<link href="bootstrap/css/bootstrap-chosen.css" rel="Stylesheet"></link>
 	<link href="bootstrap/css/bootstrap-datepicker.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 	<!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<!--<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>--><!-- Autocomplete --><!-- działa -->
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script><!-- Autocomplete --><!-- działa -->
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script><!-- Autocomplete --><!-- działa -->
 	<!--<script src="bootstrap/js/jquery-1.12.4.js"></script>-->
 	<!-- Include all complied plugins (below), or include indiviudal files as needed -->
 	<script src="bootstrap/js/bootstrap.js" type="text/javascript"></script>
@@ -44,19 +47,24 @@ $(function() {
 		todayHighlight: true
 	});
 
-	$("#recipient").typeahead({
-		source: function(query, process) {
-			$.ajax({
-				url: 'scripts/autocomplete_recipient.php',
-				type: 'POST',
-				data: 'query=' + query,
-				dataType: 'JSON',
-				async: true,
-				success: function(data) {
-					process(data);
-				}
-			});
-		}
+	// $(".recipient").typeahead({
+	// 	source: function(query, process) {
+	// 		$.ajax({
+	// 			url: 'scripts/autocomplete_recipient.php',
+	// 			type: 'POST',
+	// 			data: 'query=' + query,
+	// 			dataType: 'JSON',
+	// 			async: true,
+	// 			success: function(data) {
+	// 				process(data);
+	// 			}
+	// 		});
+	// 	}
+	// });
+
+	$(".recipient").autocomplete({
+	source: "scripts/autocomplete_recipient.php",
+	minLength: 1
 	});
 });
 
