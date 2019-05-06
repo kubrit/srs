@@ -24,13 +24,13 @@ $('document').ready(function()
 
 
 //  page redirect on user click edit/delete
-function edit_records() 
+function edit_records()
 {
 	document.frm.action = "shipments.php?shipments=all&action=edit";
-	document.frm.submit();		
+	document.frm.submit();
 }
 
-function delete_records() 
+function delete_records()
 {
 		var result = confirm("Are you sure?");
 		if (result) {
