@@ -30,7 +30,7 @@
 						<li role="separator" class="divider"></li>
 						<li><a href="settings.php"><span class="glyphicon glyphicon-cog"></span>&nbsp;<?php echo MENU_SETTINGS; ?></a></li>
 						<li><a href="changepassword.php"><span class="glyphicon glyphicon-lock"></span>&nbsp;<?php echo MENU_CHANGE_PASSWORD; ?></a></li>
-						<li><a href="https://github.com/SRS-HQ"><span class="glyphicon glyphicon-envelope"></span>&nbsp;<?php echo MENU_SUPPORT; ?></a></li>
+						<li><a href="https://github.com/gmbroker-hq/srs"><span class="glyphicon glyphicon-envelope"></span>&nbsp;<?php echo MENU_SUPPORT; ?></a></li>
 						<?php
 						/*if($user_data['type'] == 'Super-Administrator') { ?>
 						<li role="separator" class="divider"></li>
