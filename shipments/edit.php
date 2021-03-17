@@ -74,7 +74,7 @@ $shipments_type_id_value = '';
 							$sql = "SELECT shipment_type_id, shipment_type_name FROM ".$t_shipments_types."";
 							$result = $connect->query($sql);
 							while($data = $result->fetch_assoc()) {
-								echo "<option value='$data[shipment_type_id]' ". ($shipments_type_id_value == "$data[shipment_type_id]" ? 'selected="selected"' : "")." >" . constant($data['shipment_type_name']) . "</option>";
+								echo "<option value='$data[shipment_type_id]' ". ($shipments_type_id_value == "$data[shipment_type_id]" ? 'selected="selected"' : "")." >" . constant('SHT_ID_'.$data['shipment_type_id']) . "</option>";
 							}
 							unset($data);
 							?>
