@@ -1,0 +1,40 @@
+version: "3.7"
+
+networks:
+  mysql-network:
+    name: mysql-network
+    driver: bridge
+
+services:
+  mysql:
+    image: mysql:5.7
+    restart: always
+    networks:
+      - mysql-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=my_hard_root_password
+      - MYSQL_DATABASE=srs
+      - MYSQL_USER=srs
+      - MYSQL_PASSWORD=my_secret_password
+    volumes:
+      - /home/bkraszewski/prywatne/projects/srs/database/db_init.sql:/docker-entrypoint-initdb.d/db_init.sql
+
+  webapp:
+    image: srs:latest
+    ports:
+      - 80:80
+    networks:
+      - mysql-network
+    environment:
+      MYSQL_DATABASE_HOST: mysql
+      MYSQL_DATABASE_NAME: srs
+      MYSQL_DATABASE_USER: srs
+      MYSQL_DATABASE_USER_PASSWORD: my_secret_password
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - mysql-network
