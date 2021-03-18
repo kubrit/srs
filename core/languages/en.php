@@ -85,11 +85,11 @@ DEFINE('TXT_ME','Me');
 DEFINE('TXT_CONFIRM_DELETE','Do you really want to delete the records?');
 DEFINE('TXT_ADD_NEW_SHIPMENTS','Add new shipments');
 
-// Rodzaje przesyłek
-DEFINE('SHT_UNDEFINIED','Undefined');
-DEFINE('SHT_RECOMMENDED_LETTER','Recommended Letter');
-DEFINE('SHT_PRIORITY_LETTER','Priority Letter');
-DEFINE('SHT_PRE_PAID_PACKAGE','Pre-paid Package');
+// Shipments types
+DEFINE('SHT_ID_0','Undefined');
+DEFINE('SHT_ID_1','Recommended Letter');
+DEFINE('SHT_ID_2','Priority Letter');
+DEFINE('SHT_ID_3','Pre-paid Package');
 
 // Menu
 DEFINE('MENU_HOME','Home');

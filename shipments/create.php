@@ -109,12 +109,12 @@ if(isset($_POST['save_many'])) {
 						<td><textarea type="text" name="body_sent_correspondence<?php echo $i; ?>" placeholder=" <?php echo PLH_CONTENT_OF_SENT_CORRESPONDENCE; ?> " class='form-control' style="min-width: 100%;resize:vertical"/></textarea></td>
 						<td>
 							<select name="shipment_type_id<?php echo $i; ?>" class="form-control match-content">
-								<option value="0" disabled selected style='display:none;'><?php echo TXT_CHOOSE; ?></option>
+								<option value="01" disabled selected style='display:none;'><?php echo TXT_CHOOSE; ?></option>
 								<?php
 								$sql = "SELECT * FROM ".$t_shipments_types."";
 								$result = $connect->query($sql);
 								while($data = $result->fetch_assoc()) {
-										echo "<option value='$data[shipment_type_id]'>" . constant($data['shipment_type_name']);
+									echo "<option value='$data[shipment_type_id]'>" . constant('SHT_ID_'.$data['shipment_type_id']);
 								}
 								unset($data);
 								?>

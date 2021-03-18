@@ -86,10 +86,10 @@ DEFINE('TXT_CONFIRM_DELETE','Czy na pewno usunąć rekordy?');
 DEFINE('TXT_ADD_NEW_SHIPMENTS','Dodaj nowe przeyłki');
 
 // Rodzaje przesyłek
-DEFINE('SHT_UNDEFINIED','Nieznane');
-DEFINE('SHT_RECOMMENDED_LETTER','List Polecony');
-DEFINE('SHT_PRIORITY_LETTER','List Priorytetowy');
-DEFINE('SHT_PRE_PAID_PACKAGE','Przedpłata');
+DEFINE('SHT_ID_0','Nieznane');
+DEFINE('SHT_ID_1','List Polecony');
+DEFINE('SHT_ID_2','List Priorytetowy');
+DEFINE('SHT_ID_3','Przedpłata');
 
 // Menu
 DEFINE('MENU_HOME','Dom');

@@ -104,7 +104,7 @@ ALTER TABLE `conversations`
 ALTER TABLE `conversations_members`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `unique` (`conversation_id`,`user_id`),
-  ADD KEY `FK_users_conversations_members1` (`user_id`);
+  ADD KEY `FK_users_conversations_members` (`user_id`);
 
 ALTER TABLE `conversations_messages`
   ADD PRIMARY KEY (`message_id`),
@@ -145,13 +145,25 @@ ALTER TABLE `users`
   MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 ALTER TABLE `conversations_members`
-  ADD CONSTRAINT `FK_users_conversations_members1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_users_conversations_members` 
+  FOREIGN KEY (`user_id`) 
+  REFERENCES `users` (`user_id`) 
+  ON UPDATE CASCADE;
 
 ALTER TABLE `conversations_messages`
-  ADD CONSTRAINT `FK_users_conversations_messages` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_users_conversations_messages` 
+  FOREIGN KEY (`user_id`) 
+  REFERENCES `users` (`user_id`) 
+  ON UPDATE CASCADE;
 
 ALTER TABLE `shipments`
-  ADD CONSTRAINT `FK_shipments_types_shipments` FOREIGN KEY (`shipment_type_id`) REFERENCES `shipments_types` (`shipment_type_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_shipments_types_shipments` 
+  FOREIGN KEY (`shipment_type_id`) 
+  REFERENCES `shipments_types` (`shipment_type_id`) 
+  ON UPDATE CASCADE;
 
 ALTER TABLE `users`
-  ADD CONSTRAINT `FK_companies_users` FOREIGN KEY (`company_id`) REFERENCES `companies` (`company_id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `FK_companies_users` 
+  FOREIGN KEY (`company_id`) 
+  REFERENCES `companies` (`company_id`) 
+  ON UPDATE CASCADE;
