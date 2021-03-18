@@ -249,8 +249,7 @@ require_once 'inc/overall/header.php';
 					<td><center><?php echo $data['recipient']; ?></center></td>
 					<td><center><?php echo $data['recipient_address']; ?></center></td>
 					<td><center><?php echo $data['body_sent_correspondence']; ?></center></td>
-					<!-- <td><center><?php //echo $data['shipment_type_name']; ?></center></td> -->
-					<td><center><?php echo constant($shipment_type); ?></center></td>
+					<td><center><?php echo constant('SHT_ID_'.$data['shipment_type_id']); ?></center></td>
 					<td><center><?php echo $data['registered_by']; ?></center></td>
 					<td><center><?php if ($data['updated_by_id'] != 0) { echo $data['updated_by']; } else { echo "-"; } ?></center></td>
 					<td>

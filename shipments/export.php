@@ -96,7 +96,7 @@ else if (isset($_POST['export']) && !empty($_GET['action'] == 'pdf'))
 	//$obj_pdf->Image('./core/classes/tcpdf/examples/images/tcpdf_signature.png', 180, 60, 15, 15, 'PNG');// create content for signature (image and/or text)
 	//$obj_pdf->setSignatureAppearance(180, 60, 15, 15);// define active area for signature appearance
 	// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
+	ob_end_clean();
 	$obj_pdf->Output("file.pdf", "I");
 
 } else {

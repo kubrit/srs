@@ -22,7 +22,7 @@ function get_shipments_pdf($shipments) {
 			, p.recipient
 			, p.recipient_address
 			, p.body_sent_correspondence
-			, p.updated_by_id AS updated_by_id
+			, p.updated_by_id
 			, rp.shipment_type_name
 			, CONCAT(u1.first_name,' ',u1.last_name) AS registered_by
 			, CONCAT(u2.first_name,' ',u2.last_name) AS updated_by
@@ -54,32 +54,28 @@ function get_shipments_pdf($shipments) {
 	{
 		while($row = mysqli_fetch_array($result))
 		{
-			$html .='
-				<tr>
-					<td>'.$lp++.'.</td>
-					<td>'.$row["date_sent"].'</td>
-					<td>'.$row["recipient"].'</td>
-					<td>'.$row["recipient_address"].'</td>
-					<td>'.$row["body_sent_correspondence"].'</td>
-					<td>'.constant($row["shipment_type_name"]).'</td>
-					<td>'.$row["registered_by"].'</td>';
-          if($row["updated_by_id"]==0) {
-      $html .='
-          <td style="text-align: center">-</td>';
-          } else {
-      $html .='
-          <td>'.$row["updated_by"].'</td>
-          ';
-         }
-      $html .='</tr>';
+			$html .='<tr>
+				<td>'.$lp++.'.</td>
+				<td>'.$row["date_sent"].'</td>
+				<td>'.$row["recipient"].'</td>
+				<td>'.$row["recipient_address"].'</td>
+				<td>'.$row["body_sent_correspondence"].'</td>
+				<td>'.$row['shipment_type_name'].'</td>
+				<td>'.$row["registered_by"].'</td>';
+				if($row["updated_by_id"]==0) {
+					$html .='<td style="text-align: center">-</td>';
+				} else {
+					$html .='<td>'.$row["updated_by"].'</td>';
+				}
+			$html .='</tr>';
 		}
 	}
 	else
 	{
-			$html .='
-				<tr>
-					<td colspan="100%" align="center">No results...</td>
-				</tr>';
+		$html .='
+			<tr>
+				<td colspan="100%" align="center">No results...</td>
+			</tr>';
 	}
 
 	if (!$result)

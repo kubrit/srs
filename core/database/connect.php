@@ -1,8 +1,8 @@
 <?php
-$DB_SERVER = "localhost";
-$DB_USERNAME = "srs";
-$DB_PASSWORD = "my_secret_password";
-$DB_DATABASE = "srs";
+$DB_SERVER = getenv( 'MYSQL_DATABASE_HOST' ) ? getenv( 'MYSQL_DATABASE_HOST' ) : 'localhost';
+$DB_DATABASE = getenv( 'MYSQL_DATABASE_NAME' ) ? getenv( 'MYSQL_DATABASE_NAME' ) : 'srs';
+$DB_USERNAME = getenv( 'MYSQL_DATABASE_USER' ) ? getenv( 'MYSQL_DATABASE_USER' ) : 'srs';
+$DB_PASSWORD = getenv( 'MYSQL_DATABASE_USER_PASSWORD' ) ? getenv( 'MYSQL_DATABASE_USER_PASSWORD' ) : 'my_secret_password';
 
 $connect = new MySQLi($DB_SERVER,$DB_USERNAME,$DB_PASSWORD,$DB_DATABASE);
 
