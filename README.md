@@ -35,7 +35,7 @@ docker run \
 #### 2. application
 ```
 docker run \
-	--name srs2 \
+	--name srs \
 	--hostname srs \
 	--link mysql:mysql \
 	--network mysql-network \
