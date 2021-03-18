@@ -54,32 +54,28 @@ function get_shipments_pdf($shipments) {
 	{
 		while($row = mysqli_fetch_array($result))
 		{
-			$html .='
-				<tr>
-					<td>'.$lp++.'.</td>
-					<td>'.$row["date_sent"].'</td>
-					<td>'.$row["recipient"].'</td>
-					<td>'.$row["recipient_address"].'</td>
-					<td>'.$row["body_sent_correspondence"].'</td>
-					<td>'.$row['shipment_type_id'].'</td>
-					<td>'.$row["registered_by"].'</td>';
-          if($row["updated_by_id"]==0) {
-      $html .='
-          <td style="text-align: center">-</td>';
-          } else {
-      $html .='
-          <td>'.$row["updated_by"].'</td>
-          ';
-         }
-      $html .='</tr>';
+			$html .='<tr>
+				<td>'.$lp++.'.</td>
+				<td>'.$row["date_sent"].'</td>
+				<td>'.$row["recipient"].'</td>
+				<td>'.$row["recipient_address"].'</td>
+				<td>'.$row["body_sent_correspondence"].'</td>
+				<td>'.$row['shipment_type_name'].'</td>
+				<td>'.$row["registered_by"].'</td>';
+				if($row["updated_by_id"]==0) {
+					$html .='<td style="text-align: center">-</td>';
+				} else {
+					$html .='<td>'.$row["updated_by"].'</td>';
+				}
+			$html .='</tr>';
 		}
 	}
 	else
 	{
-			$html .='
-				<tr>
-					<td colspan="100%" align="center">No results...</td>
-				</tr>';
+		$html .='
+			<tr>
+				<td colspan="100%" align="center">No results...</td>
+			</tr>';
 	}
 
 	if (!$result)
