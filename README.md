@@ -17,7 +17,7 @@ What things you need to install the application:
 
 ### Run in docker manualy
 ```
-git clone https://github.com/gmbroker-hq/srs.git
+git clone https://github.com/kubrit/srs.git
 ```
 #### 1. mysql
 ```
