@@ -7,7 +7,7 @@ networks:
 
 services:
   webapp:
-    image: gmbroker/srs:latest
+    image: kubrit/srs:latest
     ports:
       - 80:80
     networks:
