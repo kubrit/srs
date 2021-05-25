@@ -50,7 +50,7 @@ docker run \
 
 ### Run in docker-compose
 ```
-git clone https://github.com/gmbroker-hq/srs.git
+git clone https://github.com/kubrit/srs.git
 cd srs
 docker-compose up -d
 ```
