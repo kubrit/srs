@@ -1,6 +1,11 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+CREATE DATABASE IF NOT EXISTS `srs`;
+GRANT ALL PRIVILEGES ON srs.* TO 'srs'@'%' IDENTIFIED BY 'my_secret_password';
+
+USE srs;
+
 CREATE TABLE `companies` (
   `company_id` int(11) NOT NULL,
   `company_name` varchar(1024) NOT NULL,
