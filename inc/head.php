@@ -77,7 +77,7 @@ $(function() {
 			//var timer = 3;
 			var how_many_messages = "";
 			function inTime() {
-				setTimeout(inTime, 3000);
+				setTimeout(inTime, 10000);
 
 				$.post("messages/count_messages.php",{ile: how_many_messages}, function(data) {
 					$(".how_many_messages").html(data);
