@@ -10,17 +10,21 @@ See deployment for notes on how to deploy the project on a live system.
 ## Prerequisites
 
 What things you need to install the application:
-```
+```sh
 - docker version 19.03.8
 - docker-compose version 1.25.0
 ```
 
 ### Run in docker manualy
-```
+```sh
 git clone https://github.com/kubrit/srs.git
 ```
-#### 1. mysql
-```
+#### 1. Option A) mysql One-to-One
+Use this if you want to setup standalone mysql container for one app. For example:
+- srs app is pointing to database hostname `mysql` 172.16.0.2 and using database `srs`
+- second app is pointing to database hostname `mysql2` 172.16.0.3 and using database `second`
+- third app is pointing to database hostname `mysql3` 172.16.0.4 and using database `third`
+```sh
 docker run \
 	--name mysql \
 	--network mysql-network \
@@ -32,8 +36,24 @@ docker run \
 	-e MYSQL_PASSWORD=my_secret_password \
 	-d mysql:5.7
 ```
-#### 2. application
+#### 1. (recommended) Option B) mysql docker-compose [mysql-multi-db]
+Use this if you already have some apps and want to use one `mysql` container for multiple databases. For example:
+- srs app is pointing to database hostname `mysql` 172.16.0.2 and using database `srs`
+- second app is pointing to database hostname `mysql` 172.16.0.2 and using database `second`
+- third app is pointing to database hostname `mysql` 172.16.0.2 and using database `third`
+> Note: One container with multiple databases clone: `git clone https://github.com/kubrit/mysql-multi-db.git`
+```sh
+cd mysql
+docker-compose -up -d
 ```
+> WARNING: Remember to modify user password. Both has to be the same.
+> in `docker-compose.yml` > `MYSQL_DATABASE_USER_PASSWORD: user_password`
+> &
+> in `srs/database/db_init.sql` > `GRANT ALL PRIVILEGES ON srs.* TO 'srs'@'%' IDENTIFIED BY 'user_password';`
+
+
+#### 2. Option A) Run application in docker
+```sh
 docker run \
 	--name srs \
 	--hostname srs \
@@ -45,12 +65,13 @@ docker run \
 	-e MYSQL_DATABASE_USER_PASSWORD=my_secret_password \
 	-p 80:80 \
 	-d gmbroker/srs
-
 ```
 
-### Run in docker-compose
-```
+### 2. (recommended) Option B) Run application in docker-compose
+```sh
 git clone https://github.com/kubrit/srs.git
 cd srs
 docker-compose up -d
 ```
+
+   [mysql-multi-db]: <https://github.com/kubrit/mysql-multi-db.git>
