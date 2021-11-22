@@ -74,4 +74,25 @@ cd srs
 docker-compose up -d
 ```
 
+### Screenshoots
+Login screen (First login: sadmin/sadmin or admin/admin)
+![image](https://user-images.githubusercontent.com/27975623/142935009-e4effd00-882d-4364-98e9-be2c62afac02.png)
+
+Add received items
+![image](https://user-images.githubusercontent.com/27975623/142935319-4a2e7358-94b2-475e-9aea-86169305678b.png)
+
+How many to add
+![image](https://user-images.githubusercontent.com/27975623/142935395-86260b03-c522-4a1c-b46a-b68d029e5dad.png)
+
+Add some details to each item
+![image](https://user-images.githubusercontent.com/27975623/142935592-7cc1db15-347d-4ed1-8f20-890db73a599a.png)
+
+Export as CSV or PDF
+![image](https://user-images.githubusercontent.com/27975623/142935809-e1c1bc36-b020-41e3-8115-7f4502a9d093.png)
+
+Chat feature
+![image](https://user-images.githubusercontent.com/27975623/142935862-edc19b80-4042-4dfd-b2c3-218ab3d3e009.png)
+
+
+
    [mysql-multi-db]: <https://github.com/kubrit/mysql-multi-db.git>
