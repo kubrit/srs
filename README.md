@@ -15,6 +15,13 @@ What things you need to install the application:
 - docker-compose version 1.25.0
 ```
 
+### Fast launch
+```shell
+git clone https://github.com/kubrit/srs.git &&
+cd srs &&
+docker-compose -up -d
+```
+
 ### Run in docker manualy
 ```sh
 git clone https://github.com/kubrit/srs.git
