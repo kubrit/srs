@@ -8,7 +8,9 @@ RUN apt-get update \
     && docker-php-ext-install mysqli \
     && apt-get install -y iputils-ping \
     && apt-get autoremove -y
+COPY ./apache2/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY . /var/www/html
 WORKDIR /var/www/html
+RUN chown -R www-data:www-data /var/www
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
 # add php error log
