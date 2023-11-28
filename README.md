@@ -9,11 +9,11 @@ See deployment for notes on how to deploy the project on a live system.
 
 ## Prerequisites
 
-What things you need to install the application:
-```sh
+Tested on:
+- Docker Compose version v2.23.0-desktop.1 (Windows + WSL)
 - docker version 19.03.8
 - docker-compose version 1.25.0
-```
+
 
 ### Fast launch
 ```shell
@@ -23,15 +23,16 @@ docker-compose -up -d
 ```
 
 ### Run in docker manualy
-```sh
+```shell
 git clone https://github.com/kubrit/srs.git
 ```
+
 #### 1. Option A) mysql One-to-One
 Use this if you want to setup standalone mysql container for one app. For example:
 - srs app is pointing to database hostname `mysql` 172.16.0.2 and using database `srs`
 - second app is pointing to database hostname `mysql2` 172.16.0.3 and using database `second`
 - third app is pointing to database hostname `mysql3` 172.16.0.4 and using database `third`
-```sh
+```shell
 docker run \
 	--name mysql \
 	--network mysql-network \
@@ -49,7 +50,7 @@ Use this if you already have some apps and want to use one `mysql` container for
 - second app is pointing to database hostname `mysql` 172.16.0.2 and using database `second`
 - third app is pointing to database hostname `mysql` 172.16.0.2 and using database `third`
 > Note: One container with multiple databases clone: `git clone https://github.com/kubrit/mysql-multi-db.git`
-```sh
+```shell
 cd mysql
 docker-compose -up -d
 ```
@@ -60,7 +61,7 @@ docker-compose -up -d
 
 
 #### 2. Option A) Run application in docker
-```sh
+```shell
 docker run \
 	--name srs \
 	--hostname srs \
@@ -75,7 +76,7 @@ docker run \
 ```
 
 ### 2. (recommended) Option B) Run application in docker-compose
-```sh
+```shell
 git clone https://github.com/kubrit/srs.git
 cd srs
 docker-compose up -d
