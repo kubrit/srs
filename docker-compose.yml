@@ -1,11 +1,32 @@
 version: "3.7"
+
+###################
+#### networks #####
+###################
+
 networks:
   mysql-network:
     name: mysql-network
     driver: bridge
+
+###################
+##### volumes #####
+###################
+
+volumes:
+  mysql-data: {driver: local}
+
+##################
+#### services ####
+##################
+
 services:
-  app_srs:
-    image: kubrit/srs:latest
+
+  #### srs_app #######################################
+  srs_app:
+    image: kubrit/srs:0.0.001a
+    # build: .
+    hostname: srs_app
     ports:
       - 8087:80
     networks:
@@ -15,20 +36,24 @@ services:
       MYSQL_DATABASE_NAME: srs
       MYSQL_DATABASE_USER: srs
       MYSQL_DATABASE_USER_PASSWORD: my_secret_password
+  #### mysql #######################################
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    restart: 'unless-stopped'
+    hostname: mysql
+    networks:
+      - mysql-network
+    ports:
+      - '3306:3306'
     volumes:
-      - /var/www/html/srs:/var/www/html/
-  # mysql:
-  #   image: mysql:5.7
-  #   depends_on:
-  #     - app_srs
-  #   restart: always
-  #   networks:
-  #     - mysql-network
-  #   environment:
-  #     LANG: C.UTF-8
-  #     MYSQL_ROOT_PASSWORD: my_hard_root_password
-  #     MYSQL_DATABASE: srs
-  #     MYSQL_USER: srs
-  #     MYSQL_PASSWORD: my_secret_password
-  #   volumes:
-  #     - /var/www/html/srs/database/db_init.sql:/docker-entrypoint-initdb.d/srs_db_init.sql
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - mysql-data:/var/lib/mysql
+      - ./database/db_init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: hee3Oova@!deeSait0
+      MYSQL_DATABASE: srs
+      MYSQL_USER: srs
+      MYSQL_PASSWORD: my_secret_password
+      LANG: C.UTF-8
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --explicit_defaults_for_timestamp=1
